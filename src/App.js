@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as ActionCreators from './redux_setup/actions/index';
+import Header from './components/header';
+
+function mapStateToProps(state) {
+  return {
+    news: state.news,
+    newsFilter: state.newsFilter,
+  };
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Header);
+console.log(App);
 export default App;
