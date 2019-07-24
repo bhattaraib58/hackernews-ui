@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Logo from '../assets/images/y18.gif';
 
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <div className="page-content">
-          <div className="header clearfix">
-            <div className="logo">
-              <a href="/">
-                <img src={Logo} alt="Hacker News" />
-              </a>
-            </div>
-            <div className="logo-name">
-              <a href="/top">Hacker News</a>
-            </div>
-            <ul className="links">
-              <li>
-                <a href="/new">new</a>
-              </li>
-              <li>
-                <a href="/best">front</a>
-              </li>
-            </ul>
-          </div>
+function Header() {
+  return (
+    <div className="page-content">
+      <div className="header clearfix">
+        <div className="logo">
+          <Link to="/">
+            <img src={Logo} alt="Hacker News" />
+          </Link>
         </div>
-
-        {React.cloneElement(this.props.children, this.props)}
+        <div className="logo-name">
+          <Link to="/top">Hacker News</Link>
+        </div>
+        <ul className="links">
+          <li>
+            <Link to="/new">new</Link>
+          </li>
+          <li>
+            <Link to="/best">past</Link>
+          </li>
+        </ul>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Header;

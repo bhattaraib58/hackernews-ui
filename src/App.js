@@ -1,20 +1,28 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import * as ActionCreators from './redux_setup/actions/index';
 import Header from './components/header';
+import PageView from './components/pageView';
+import noMatch from './components/noMatch';
+import CommentView from './components/commentView';
+import Footer from './components/footer';
 
-function mapStateToProps(state) {
-  return {
-    news: state.news,
-    newsFilter: state.newsFilter,
-  };
+function App() {
+  return (
+    <>
+      <Header />
+      <div className="page-content news-grid">
+        <Switch>
+          <Route exact path="/" component={PageView} />
+          <Route path="/top" component={PageView} />
+          <Route path="/best" component={PageView} />
+          <Route path="/new" component={PageView} />
+          <Route path="/item/:id" component={CommentView} />
+          <Route component={noMatch} />
+        </Switch>
+        <Footer />
+      </div>
+    </>);
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(ActionCreators, dispatch);
-}
-
-const App = connect(mapStateToProps, mapDispatchToProps)(Header);
-console.log(App);
 export default App;

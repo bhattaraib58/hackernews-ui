@@ -2,7 +2,7 @@ import React from 'react';
 
 function Loading() {
   return (
-    <div className="loader center">
+    <div className="loader">
       <i className="fa fa-spinner fa-spin" />
     </div>
   );

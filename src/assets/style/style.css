@@ -16,7 +16,7 @@ button {
 }
 
 .page-content {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -45,6 +45,10 @@ button {
   margin-top: 2px;
 }
 
+.header .logo-name a:hover {
+  color: #69696986;
+}
+
 .header .links {
   float: left;
   margin-top: 2px;
@@ -53,7 +57,18 @@ button {
 .header .links li {
   display: inline-block;
   font-size: 10pt;
+  padding-right: 5px;
   margin-right: 5px;
+  line-height: 10pt;
+}
+
+.header .links li a:hover {
+  color: #00000086;
+}
+
+.header .links li:not(:last-child) {
+  background: url("../images/pixel.png") repeat-y;
+  background-position: right;
 }
 
 .header a:visited {
@@ -79,19 +94,12 @@ a:link {
   position: relative;
 }
 
-.center {
+.loader {
   margin: auto;
-  width: 50%;
-  max-width: 400px;
-  min-width: 150px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 50px;
-}
-
-div.loader {
   font-size: 20px;
 }
 
@@ -105,27 +113,144 @@ div.loader {
   min-height: 20px;
 }
 
-.rank{
-  display: inline-block;
-  width:20px;
+.rank {
   float: left;
   font-size: 10pt;
   color: #828282;
-  margin-right: 3px;
   text-align: right;
+  width: 20px;
+}
+
+.upvote {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border: 0px;
+  margin: 3px 2px 6px;
+  background: url("../images/grayarrow2x.gif") no-repeat;
+  background-position: center;
+  margin-right: 6px;
+}
+
+.title a h3:hover {
+  color: #6b5454;
 }
 
 .title h3 {
-  font-size: 10pt;
+  font-size: 11pt;
+  line-height: 14pt;
   font-weight: 400;
+  word-break: break-all;
 }
 
-.title{
+.title {
   float: left;
   font-size: 7pt;
   color: #828282;
+  width: 85%;
 }
-.title ul li{
+.title ul li {
   display: inline-block;
   margin-right: 3px;
+}
+
+.title ul li a:hover {
+  text-decoration: underline;
+}
+
+.comment-wrapper {
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.user-form {
+  margin: 10px 15px;
+  margin-bottom: 40px;
+}
+
+.user-form input,
+.user-form textarea {
+  font-family: monospace;
+  font-size: 10pt;
+  display: block;
+}
+.user-form input {
+  padding: 2px 4px;
+}
+
+.user-form textarea {
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 90%;
+}
+
+.user-comment {
+  margin-bottom: 10px;
+  min-height: 20px;
+  position: relative;
+}
+
+.user-comment ul {
+  min-height: 10px;
+  margin: 3px 2px 6px;
+}
+
+.comment-text {
+  color: #000000;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+}
+
+.reply {
+  text-decoration: underline;
+  margin-top: 6px;
+}
+
+.comment-body {
+  margin-bottom: 10px;
+}
+
+.user-sub-comment {
+  margin-left: 20px;
+}
+
+.footer {
+  margin-top: 30px;
+}
+
+.footer-line {
+  background-color: rgb(255, 102, 0);
+  height: 2px;
+}
+
+.footer ul {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 8pt;
+  color: #828282;
+}
+
+.footer ul li {
+  display: inline-block;
+  padding-right: 5px;
+  margin-right: 5px;
+}
+
+.footer ul li:not(:last-child) {
+  background: url("../images/pixel.png") repeat-y;
+  background-position: right;
+}
+
+.footer .user-form {
+  text-align: center;
+  font-size: 10pt;
+  color: #828282;
+}
+
+.footer .user-form label {
+  margin-right: 5px;
+}
+
+.footer .user-form input {
+  display: inline-block;
 }

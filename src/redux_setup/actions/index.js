@@ -15,29 +15,37 @@ export const setNews = (news, isFetchSucessful = false) => ({
 
 export const addNews = news => ({
   type: NEWS_ACTIONS.ADD_NEWS,
-  news, //news object
+  payload: {
+    news,
+  }, //news object
 });
 
 export const editNews = (id, news) => ({
   type: NEWS_ACTIONS.EDIT_NEWS,
-  id,
-  news,
+  payload: {
+    id,
+    news,
+  },
 });
 
 export const deleteNews = id => ({
   type: NEWS_ACTIONS.DELETE_NEWS,
-  id,
+  payload: {
+    id,
+  },
 });
 
 
 
 export const NEWS_FILTERS = {
-  TOP_STORIES: 'TOP_STORIES',
-  NEW_STORIES: 'NEW_STORIES',
-  BEST_STORIES: 'BEST_STORIES',
+  TOP_STORIES: '/top',
+  NEW_STORIES: '/new',
+  BEST_STORIES: '/best',
 };
 
 export const setNewsFilter = filter => ({
   type: 'SET_NEWS_FILTER',
-  filter,
+  payload: {
+    filter,
+  },
 });
