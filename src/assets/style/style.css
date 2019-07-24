@@ -20,6 +20,12 @@ button {
   margin: 0 auto;
 }
 
+.page-not-found{
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .header {
   background-color: rgb(255, 102, 0);
   padding: 2px;
@@ -46,7 +52,7 @@ button {
 }
 
 .header .logo-name a:hover {
-  color: #69696986;
+  color: rgba(105, 105, 105, 0.521);
 }
 
 .header .links {
@@ -118,7 +124,6 @@ a:link {
   font-size: 10pt;
   color: #828282;
   text-align: right;
-  width: 20px;
 }
 
 .upvote {
@@ -214,8 +219,21 @@ a:link {
   margin-left: 20px;
 }
 
+
+.next-page{
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 20px;
+  font-size: 10pt;
+  color: #828282;
+}
+
+.next-page a:hover{
+  color: #000000;
+}
+
 .footer {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .footer-line {
@@ -234,6 +252,10 @@ a:link {
   display: inline-block;
   padding-right: 5px;
   margin-right: 5px;
+}
+
+.footer ul li a:hover {
+  color: #00000086;
 }
 
 .footer ul li:not(:last-child) {

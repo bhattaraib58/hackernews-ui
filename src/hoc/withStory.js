@@ -32,7 +32,7 @@ function withStory(WrappedComponent) {
 
     renderStory() {
       let story = this.state.story;
-      return (story.type !== 'story' ? null :
+      return (
         <>
           {
             this.props.index ?

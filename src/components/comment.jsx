@@ -11,18 +11,28 @@ class Comment extends Component {
       userComment: null,
       loading: true,
     };
+
+    this._isMounted = false;
     this.renderComment = this.renderComment.bind(this);
   }
 
   async componentDidMount() {
+    this._isMounted = true;
+
     let userComment = await HTTPHelpers.default.getById(
       HTTPHelpers.BASE_URL + 'item/' + this.props.commentId + '.json'
     );
 
-    this.setState({
-      userComment,
-      loading: false,
-    });
+    if (this._isMounted) {
+      this.setState({
+        userComment,
+        loading: false,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   renderComment() {
@@ -52,7 +62,7 @@ class Comment extends Component {
             {userComment.kids &&
               userComment.kids.length > 0 &&
               userComment.kids.map(commentId => (
-                <div className="user-sub-comment clearfix"  key={commentId}>
+                <div className="user-sub-comment clearfix" key={commentId}>
                   <Comment commentId={commentId} key={commentId} />
                 </div>
               ))}

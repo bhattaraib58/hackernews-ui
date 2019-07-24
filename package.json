@@ -1,6 +1,6 @@
 {
-  "name": "fetch-api",
-  "version": "0.1.0",
+  "name": "hackernews-ui",
+  "version": "0.9.1",
   "homepage": "https://bhattaraib58.github.io/hackernews-ui",
   "private": true,
   "dependencies": {

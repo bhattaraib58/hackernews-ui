@@ -20,12 +20,26 @@ function Header() {
             <Link to="/new">new</Link>
           </li>
           <li>
-            <Link to="/best">past</Link>
+            <Link to="/best">best</Link>
+          </li>
+          <li>
+            <Link to="/comments">comments</Link>
+          </li>
+          <li>
+            <Link to="/ask">ask</Link>
+          </li>
+          <li>
+            <Link to="/show">show</Link>
+          </li>
+          <li>
+            <Link to="/jobs">jobs</Link>
+          </li>
+          <li>
+            <Link to="/submit">submit</Link>
           </li>
         </ul>
       </div>
     </div>
   );
 }
-
 export default Header;
