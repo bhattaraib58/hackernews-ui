@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { getTimeDiff } from '../utils/utils';
-import * as HTTPHelpers from '../services/Http/http';
-import Loading from './loading';
+import React, { Component } from "react";
+import { getTimeDiff } from "../utils/utils";
+import * as HTTPHelpers from "../services/Http/http";
+import Loading from "./loading";
 
 class Comment extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Comment extends Component {
 
     this.state = {
       userComment: null,
-      loading: true,
+      loading: true
     };
 
     this._isMounted = false;
@@ -20,13 +20,13 @@ class Comment extends Component {
     this._isMounted = true;
 
     let userComment = await HTTPHelpers.default.getById(
-      HTTPHelpers.BASE_URL + 'item/' + this.props.commentId + '.json'
+      HTTPHelpers.BASE_URL + "item/" + this.props.commentId + ".json"
     );
 
     if (this._isMounted) {
       this.setState({
         userComment,
-        loading: false,
+        loading: false
       });
     }
   }
@@ -37,37 +37,33 @@ class Comment extends Component {
 
   renderComment() {
     let userComment = this.state.userComment;
-    return (
+    return userComment.type !== "comment" ? null : (
       <>
-        {userComment.type !== 'comment' ? null : (
-          <>
-            <div className="comment-body clearfix">
-              <div className="upvote" />
-              <div className="title">
-                <ul>
-                  <li>by {userComment.by}</li>
-                  <li>{getTimeDiff(userComment.time)}</li>
-                </ul>
-                <div
-                  className="comment-text"
-                  dangerouslySetInnerHTML={{ __html: userComment.text }}
-                />
-                {/* only random hack for displaying ancor tag */}
-                <div className="reply">
-                  <a href={'#' + userComment.id}>reply</a>
-                </div>
-              </div>
+        <div className="comment-body clearfix">
+          <div className="upvote" />
+          <div className="title">
+            <ul>
+              <li>by {userComment.by}</li>
+              <li>{getTimeDiff(userComment.time)}</li>
+            </ul>
+            <div
+              className="comment-text"
+              dangerouslySetInnerHTML={{ __html: userComment.text }}
+            />
+            {/* only random hack for displaying ancor tag */}
+            <div className="reply">
+              <a href={"#" + userComment.id}>reply</a>
             </div>
+          </div>
+        </div>
 
-            {userComment.kids &&
-              userComment.kids.length > 0 &&
-              userComment.kids.map(commentId => (
-                <div className="user-sub-comment clearfix" key={commentId}>
-                  <Comment commentId={commentId} key={commentId} />
-                </div>
-              ))}
-          </>
-        )}
+        {userComment.kids &&
+          userComment.kids.length > 0 &&
+          userComment.kids.map(commentId => (
+            <div className="user-sub-comment clearfix" key={commentId}>
+              <Comment commentId={commentId} key={commentId} />
+            </div>
+          ))}
       </>
     );
   }
