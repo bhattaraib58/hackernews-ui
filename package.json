@@ -4,12 +4,12 @@
   "homepage": "https://bhattaraib58.github.io/hackernews-ui",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.1.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "redux": "^4.0.4"
+    "react-scripts": "^3.4.0",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,8 +34,8 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "redux-devtools": "^3.5.0"
   }
 }
