@@ -11,14 +11,13 @@ import './assets/style/responsive.css';
 import store from './redux_setup/store';
 import App from './App';
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <App />
     </Router>
-  </Provider>
-  , document.getElementById('root')
+  </Provider>,
+  document.getElementById('root')
 );
 
 serviceWorker.unregister();

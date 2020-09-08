@@ -1,33 +1,23 @@
 export function getTimeDiff(previousTime) {
-  let msPerMinute = 60 * 1000;
-  let msPerHour = msPerMinute * 60;
-  let msPerDay = msPerHour * 24;
-  let msPerMonth = msPerDay * 30;
-  let msPerYear = msPerDay * 365;
+  const msPerMinute = 60 * 1000;
+  const msPerHour = msPerMinute * 60;
+  const msPerDay = msPerHour * 24;
+  const msPerMonth = msPerDay * 30;
+  const msPerYear = msPerDay * 365;
 
-  let elapsed = Date.now() - (previousTime*1000);
+  const elapsed = Date.now() - previousTime * 1000;
 
   if (elapsed < msPerMinute) {
     return Math.round(elapsed / 1000) + ' seconds ago';
-  }
-
-  else if (elapsed < msPerHour) {
+  } else if (elapsed < msPerHour) {
     return Math.round(elapsed / msPerMinute) + ' minutes ago';
-  }
-
-  else if (elapsed < msPerDay) {
+  } else if (elapsed < msPerDay) {
     return Math.round(elapsed / msPerHour) + ' hours ago';
-  }
-
-  else if (elapsed < msPerMonth) {
+  } else if (elapsed < msPerMonth) {
     return Math.round(elapsed / msPerDay) + ' days ago';
-  }
-
-  else if (elapsed < msPerYear) {
+  } else if (elapsed < msPerYear) {
     return Math.round(elapsed / msPerMonth) + ' months ago';
-  }
-
-  else {
+  } else {
     return Math.round(elapsed / msPerYear) + ' years ago';
   }
 }

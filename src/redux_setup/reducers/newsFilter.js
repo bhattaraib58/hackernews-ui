@@ -1,6 +1,6 @@
 import { NEWS_FILTERS } from '../actions';
 
-const newsFilter = (stories='topstories.json', action) => {
+const newsFilter = (stories = 'topstories.json', action) => {
   switch (action.payload && action.payload.filter) {
     case NEWS_FILTERS.TOP_STORIES:
       return 'topstories.json';
@@ -12,9 +12,8 @@ const newsFilter = (stories='topstories.json', action) => {
       return 'beststories.json';
 
     default:
-      return 'topstories.json';
+      return stories;
   }
-
 };
 
 export default newsFilter;

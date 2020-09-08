@@ -7,7 +7,7 @@ import * as ActionCreators from '../redux_setup/actions/index';
 function mapStateToProps(state) {
   return {
     news: state.news,
-    newsFilter: state.newsFilter,
+    newsFilter: state.newsFilter
   };
 }
 
@@ -16,9 +16,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 // compose(f, g, h) is the same as (...args) => f(g(h(...args)))
-const withRouterAndConnect = compose(
-  withRouter,
-  connect(mapStateToProps, mapDispatchToProps)
-);
+const withRouterAndConnect = compose(withRouter, connect(mapStateToProps, mapDispatchToProps));
 
 export default withRouterAndConnect;

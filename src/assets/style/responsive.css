@@ -7,7 +7,7 @@
     line-height: 12pt;
   }
   .upvote {
-    background: url("../images/grayarrow.gif") no-repeat;
+    background: url('../images/grayarrow.gif') no-repeat;
     background-size: 10px;
     margin-right: 2px;
   }
