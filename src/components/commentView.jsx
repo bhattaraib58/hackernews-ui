@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import withStory from '../hoc/withStory';
@@ -29,12 +30,18 @@ class CommentView extends Component {
 
         {this.props.story &&
           this.props.story.kids &&
-          this.props.story.kids.map(commentId => (
-            <Comment commentId={commentId} key={commentId} />
-          ))}
+          this.props.story.kids.map((commentId) => <Comment commentId={commentId} key={commentId} />)}
       </div>
     );
   }
 }
+
+CommentView.propTypes = {
+  loading: PropTypes.bool,
+  renderStory: PropTypes.func,
+  story: PropTypes.shape({
+    kids: PropTypes.array
+  })
+};
 
 export default withStory(CommentView);

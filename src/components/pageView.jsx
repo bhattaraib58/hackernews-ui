@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,8 +22,8 @@ class PageView extends Component {
   }
 
   componentDidUpdate(previousProps) {
-    let currentLocation = this.props.location.pathname;
-    let previousLocation = previousProps.location.pathname;
+    const currentLocation = this.props.location.pathname;
+    const previousLocation = previousProps.location.pathname;
 
     if (currentLocation !== previousLocation && this._isMounted) {
       window.scrollTo(0, 0);
@@ -35,25 +36,29 @@ class PageView extends Component {
   }
 
   displayNextPage() {
-    let pagesRemaining =
-      this.props.news.length / (this.currentPageNumber * this.itemsPerPage);
+    const pagesRemaining = this.props.news.length / (this.currentPageNumber * this.itemsPerPage);
+
     if (parseInt(pagesRemaining) > 0) {
       let path = this.props.match.path;
+
       if (path === '/') {
         path = '/top';
       }
+
       return (
         <div className="next-page">
           <Link to={path + '/' + (this.currentPageNumber + 1)}>More</Link>
         </div>
       );
     }
+
     return null;
   }
 
   setCurrentPage() {
-    let currentLocation = this.props.location.pathname;
-    let paths = currentLocation.split('/');
+    const currentLocation = this.props.location.pathname;
+    const paths = currentLocation.split('/');
+
     if (paths[2]) {
       this.currentPageNumber = parseInt(paths[2]);
     } else {
@@ -64,9 +69,8 @@ class PageView extends Component {
   async setNews() {
     this.setCurrentPage();
     await this.props.setNewsFilter(this.props.match.path);
-    let news = await HTTPHelpers.default.getAll(
-      HTTPHelpers.BASE_URL + this.props.newsFilter
-    );
+    const news = await HTTPHelpers.default.getAll(HTTPHelpers.BASE_URL + this.props.newsFilter);
+
     if (this._isMounted) {
       this.props.setNews(news);
     }
@@ -76,17 +80,12 @@ class PageView extends Component {
     return (
       <>
         {this.props.news
-          .slice(
-            (this.currentPageNumber - 1) * this.itemsPerPage,
-            this.currentPageNumber * this.itemsPerPage
-          )
+          .slice((this.currentPageNumber - 1) * this.itemsPerPage, this.currentPageNumber * this.itemsPerPage)
           .map((storyId, index) => (
             <Story
               storyId={storyId}
               key={storyId}
-              index={
-                (this.currentPageNumber - 1) * this.itemsPerPage + index + 1
-              }
+              index={(this.currentPageNumber - 1) * this.itemsPerPage + index + 1}
             />
           ))}
         {this.displayNextPage()}
@@ -94,5 +93,16 @@ class PageView extends Component {
     );
   }
 }
+
+PageView.propTypes = {
+  location: PropTypes.any,
+  match: PropTypes.shape({
+    path: PropTypes.string
+  }),
+  news: PropTypes.array,
+  newsFilter: PropTypes.any,
+  setNews: PropTypes.func,
+  setNewsFilter: PropTypes.func
+};
 
 export default withRouterAndConnect(PageView);
