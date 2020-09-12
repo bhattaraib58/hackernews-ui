@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Header from './components/header';
-import PageView from './components/pageView';
-import noMatch from './components/noMatch';
-import CommentView from './components/commentView';
 import Footer from './components/footer';
+import noMatch from './components/noMatch';
+import PageView from './components/pageView';
+import CommentView from './components/commentView';
 
 function App() {
   return (
