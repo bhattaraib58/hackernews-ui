@@ -1,7 +1,6 @@
 {
   "name": "hackernews-ui",
   "version": "1.2.5",
-  "homepage": "https://bhattaraib58.github.io/hackernews-ui",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
