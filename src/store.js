@@ -5,7 +5,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 
-import rootSaga from 'sagas';
+// import rootSaga from 'sagas';
 
 import { newsReducer } from 'reducers/newsReducer';
 import { newsFilterReducer } from 'reducers/newsFilterReducer';
@@ -42,7 +42,7 @@ const store = configureStore({
   reducer: rootReducer
 });
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
 

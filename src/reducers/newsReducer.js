@@ -1,6 +1,7 @@
 import { NEWS_ACTIONS } from '../redux_setup/actions';
 
-const news = (state = [], action) => {
+// eslint-disable-next-line require-jsdoc
+export const newsReducer = (state = [], action) => {
   switch (action.type) {
     case NEWS_ACTIONS.SET_ALL_NEWS:
       return [...action.payload.news];
@@ -9,5 +10,3 @@ const news = (state = [], action) => {
       return state;
   }
 };
-
-export default news;
