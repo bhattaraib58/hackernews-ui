@@ -1,3 +1,10 @@
+/**
+ * Get the Time Difference From the Current Time.
+ *
+ * @param {number} previousTime
+ *
+ * @returns {String}
+ */
 export function getTimeDiff(previousTime) {
   const msPerMinute = 60 * 1000;
   const msPerHour = msPerMinute * 60;
