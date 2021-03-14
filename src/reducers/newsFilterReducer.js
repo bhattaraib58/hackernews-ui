@@ -1,4 +1,4 @@
-import { NEWS_FILTERS } from '../actions';
+import { NEWS_FILTERS } from '../redux_setup/actions';
 
 const newsFilter = (stories = 'topstories.json', action) => {
   switch (action.payload && action.payload.filter) {

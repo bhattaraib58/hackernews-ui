@@ -1,4 +1,4 @@
-import { NEWS_ACTIONS } from '../actions';
+import { NEWS_ACTIONS } from '../redux_setup/actions';
 
 const news = (state = [], action) => {
   switch (action.type) {
