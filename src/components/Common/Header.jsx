@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Logo from '../assets/images/y18.gif';
+import Logo from 'assets/images/y18.gif';
 
+/**
+ * Header Component.
+ *
+ * @returns {Component}
+ */
 function Header() {
   return (
     <div className="page-content">
@@ -42,4 +47,5 @@ function Header() {
     </div>
   );
 }
+
 export default Header;
