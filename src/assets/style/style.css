@@ -1,18 +1,7 @@
-body {
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 10pt;
-  color: #222222;
-}
-
 .clearfix::after {
   content: '';
   clear: both;
   display: table;
-}
-
-a,
-button {
-  cursor: pointer;
 }
 
 .page-content {

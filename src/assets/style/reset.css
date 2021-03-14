@@ -2,3 +2,46 @@
   margin: 0;
   padding: 0;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+body {
+  font-size: 10pt;
+  color: #222222;
+  background-color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  font-family: Verdana, Geneva, sans-serif;
+}

@@ -2,10 +2,12 @@
   .page-content {
     width: 85%;
   }
+
   .title h3 {
     font-size: 10pt;
     line-height: 12pt;
   }
+
   .upvote {
     background: url('../images/grayarrow.gif') no-repeat;
     background-size: 10px;
