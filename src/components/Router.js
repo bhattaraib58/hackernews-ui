@@ -6,9 +6,9 @@ import history from 'utils/history';
 import Header from 'components/Common/Header';
 import Footer from 'components/Common/Footer';
 
-import noMatch from 'components/Pages/noMatch';
 import PageView from 'components/Pages/pageView';
 import CommentView from 'components/Pages/commentView';
+import PageNotFound from 'components/Pages/PageNotFound';
 
 /**
  * Top level application router.
@@ -28,7 +28,8 @@ const Router = () => {
             <Route path="/best" component={PageView} />
             <Route path="/new" component={PageView} />
             <Route path="/item/:id" component={CommentView} />
-            <Route path="/" component={noMatch} />
+
+            <Route path="/" component={PageNotFound} />
           </Switch>
         </BrowserRouter>
         <Footer />
