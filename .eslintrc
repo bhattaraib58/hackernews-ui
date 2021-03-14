@@ -13,8 +13,21 @@
   },
   "plugins": ["react", "react-hooks", "prettier"],
   "rules": {
+    "react-hooks/exhaustive-deps":"error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "require-jsdoc": "off"
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": true,
+          "FunctionExpression": false
+        }
+      }
+    ],
+    "react/display-name": "off"
   },
   "settings": {
     "react": {
