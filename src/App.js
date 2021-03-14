@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import Router from 'components/Router';
-import ErrorBoundary from 'components/pages/ErrorBoundary';
+import ErrorBoundary from 'components/Pages/ErrorBoundary';
 
 import store, { persistor } from 'store';
 
