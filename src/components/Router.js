@@ -6,8 +6,8 @@ import history from 'utils/history';
 import Header from 'components/Common/Header';
 import Footer from 'components/Common/Footer';
 
-import PageView from 'components/Pages/pageView';
-import CommentView from 'components/Pages/commentView';
+// import PageView from 'components/Pages/pageView';
+// import CommentView from 'components/Pages/commentView';
 import PageNotFound from 'components/Pages/PageNotFound';
 
 /**
@@ -17,24 +17,22 @@ import PageNotFound from 'components/Pages/PageNotFound';
  */
 const Router = () => {
   return (
-    <main>
+    <BrowserRouter history={history}>
       <Header />
 
       <div className="page-content news-grid">
-        <BrowserRouter history={history}>
-          <Switch>
-            <Route exact path="/" component={PageView} />
-            <Route path="/top" component={PageView} />
-            <Route path="/best" component={PageView} />
-            <Route path="/new" component={PageView} />
-            <Route path="/item/:id" component={CommentView} />
+        <Switch>
+          {/* <Route exact path="/" component={PageView} /> */}
+          {/* <Route path="/top" component={PageView} /> */}
+          {/* <Route path="/best" component={PageView} /> */}
+          {/* <Route path="/new" component={PageView} /> */}
+          {/* <Route path="/item/:id" component={CommentView} /> */}
 
-            <Route path="/" component={PageNotFound} />
-          </Switch>
-        </BrowserRouter>
+          <Route path="/" component={PageNotFound} />
+        </Switch>
         <Footer />
       </div>
-    </main>
+    </BrowserRouter>
   );
 };
 
