@@ -89,15 +89,6 @@ a:link {
   position: relative;
 }
 
-.loader {
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-}
-
 .news-grid {
   padding-top: 10px;
   background-color: rgb(245, 244, 244);
