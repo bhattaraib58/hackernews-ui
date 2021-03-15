@@ -1,0 +1,33 @@
+.lineBreak {
+  border-bottom: 2px solid #ff6600;
+}
+
+.links {
+  list-style: none;
+}
+
+.links li {
+  font-size: 8pt;
+  line-height: 10pt;
+  padding-right: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #000000;
+}
+
+.links li:last-child {
+  border-right: none;
+}
+
+.searchContainer {
+  font-size: 10pt;
+  color: #828282;
+  text-align: center;
+}
+
+.searchContainer label {
+  margin-right: 5px;
+}
+
+.searchContainer input {
+  display: inline-block;
+}

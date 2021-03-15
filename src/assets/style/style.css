@@ -72,6 +72,22 @@ a:hover {
   margin-right: 20px;
 }
 
+.pt-20 {
+  padding-top: 20px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.pl-20 {
+  padding-left: 20px;
+}
+
+.pr-20 {
+  padding-right: 20px;
+}
+
 .story-wrap {
   position: relative;
 }
@@ -196,49 +212,4 @@ a:visited {
 
 .next-page a:hover {
   color: #000000;
-}
-
-.footer {
-  margin-top: 10px;
-}
-
-.footer-line {
-  background-color: rgb(255, 102, 0);
-  height: 2px;
-}
-
-.footer ul {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 8pt;
-  color: #828282;
-}
-
-.footer ul li {
-  display: inline-block;
-  padding-right: 5px;
-  margin-right: 5px;
-}
-
-.footer ul li a:hover {
-  color: #00000086;
-}
-
-.footer ul li:not(:last-child) {
-  background: url('../images/pixel.png') repeat-y;
-  background-position: right;
-}
-
-.footer .user-form {
-  text-align: center;
-  font-size: 10pt;
-  color: #828282;
-}
-
-.footer .user-form label {
-  margin-right: 5px;
-}
-
-.footer .user-form input {
-  display: inline-block;
 }
