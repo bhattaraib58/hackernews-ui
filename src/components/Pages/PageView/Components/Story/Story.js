@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink as Link } from 'react-router-dom';
+import BeatLoader from 'react-spinners/BeatLoader';
 import CircleLoader from 'react-spinners/CircleLoader';
+
+import useFetchItem from 'hooks/useFetchItem';
 
 import ROUTES from 'constants/routes';
 import upvoteArrow from 'assets/images/grayarrow2x.gif';
 
-import { getStory } from 'services/story';
 import { interpolate } from 'utils/httpUtil';
 import { extractHostname, getTimeDifference } from 'utils/utils';
 
@@ -18,49 +20,27 @@ import styles from './Story.module.css';
  * @param {*} props
  * @returns {Component}
  */
-function Story({ storyId = 0, storyIndex = 0 }) {
-  const [gettingStory, setGettingStory] = useState(true);
-  const [gettingStoryError, setGettingStoryError] = useState(null);
-  const [gettingStorySuccess, setGettingStorySuccess] = useState(false);
-
-  const [story, setStory] = useState({});
+function Story({ storyId = 0, storyIndex = 0, isStoryDiscussion = false, setStoryInfo = () => {} }) {
+  const { item: story, gettingItem, gettingItemError, gettingItemSuccess } = useFetchItem(storyId);
 
   useEffect(() => {
-    // const storyId = this.props.storyId || this.props.match.params.id || 12;
-
-    /**
-     * Fetch Story Data based on storyId.
-     *
-     */
-    async function fetchStoryData() {
-      try {
-        setGettingStory(true);
-        const story = await getStory(storyId + '.json');
-
-        setStory(story);
-        setGettingStory(false);
-        setGettingStoryError(null);
-        setGettingStorySuccess(true);
-      } catch (error) {
-        setGettingStory(false);
-        setGettingStorySuccess(false);
-        setGettingStoryError(error?.message || 'Error Fetching Story');
-      }
+    if (isStoryDiscussion) {
+      setStoryInfo({ story, gettingItem, gettingItemError, gettingItemSuccess });
     }
+  }, [story, gettingItem, gettingItemError, gettingItemSuccess, isStoryDiscussion, setStoryInfo]);
 
-    fetchStoryData();
-  }, [storyId]);
+  if (gettingItem) {
+    const LoaderComponent = isStoryDiscussion ? BeatLoader : CircleLoader;
 
-  if (gettingStory) {
     return (
       <div className="center mt-20 mb-20">
-        <CircleLoader color="#F46526" loading={gettingStory} size={20} />
+        <LoaderComponent color="#F46526" loading={gettingItem} size={20} margin={5} />
       </div>
     );
-  } else if (!gettingStory && !gettingStorySuccess && gettingStoryError) {
+  } else if (!gettingItem && !gettingItemSuccess && gettingItemError) {
     return (
       <div className="center">
-        <p className="text-danger">{gettingStoryError}</p>
+        <p className="text-danger">{gettingItemError}</p>
       </div>
     );
   }
@@ -70,7 +50,7 @@ function Story({ storyId = 0, storyIndex = 0 }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.storyIndex}>{storyIndex}. </div>
+      {storyIndex && <div className={styles.storyIndex}>{storyIndex}. </div>}
       <div
         className={styles.upvote}
         style={{
@@ -85,12 +65,14 @@ function Story({ storyId = 0, storyIndex = 0 }) {
             <span className={styles.hostName}>({hostName})</span>
           </a>
         ) : (
-          <h3 className={styles.title}>{story.title}</h3>
+          <h3 className={styles.title}>
+            {story.type !== 'comment' ? story.title : <div dangerouslySetInnerHTML={{ __html: story.text }} />}
+          </h3>
         )}
 
         <ul className={`align-center ${styles.links}`}>
           <li>
-            {story.score} points by {story.by}
+            {story.score || 0} points by {story.by}
           </li>
           <li>{getTimeDifference(story.time)}</li>
           <li>
@@ -109,6 +91,8 @@ function Story({ storyId = 0, storyIndex = 0 }) {
 }
 
 Story.propTypes = {
+  isStoryDiscussion: PropTypes.bool,
+  setStoryInfo: PropTypes.func,
   storyId: PropTypes.number,
   storyIndex: PropTypes.number
 };
