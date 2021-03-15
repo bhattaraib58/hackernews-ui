@@ -1,12 +1,33 @@
-import { NEWS_ACTIONS } from '../redux_setup/actions';
+import { createReducer, createAction } from '@reduxjs/toolkit';
 
-// eslint-disable-next-line require-jsdoc
-export const newsReducer = (state = [], action) => {
-  switch (action.type) {
-    case NEWS_ACTIONS.SET_ALL_NEWS:
-      return [...action.payload.news];
+export const getAllNews = createAction('GET_ALL_NEWS/REQUEST');
+export const getAllNewsSuccess = createAction('GET_ALL_NEWS/SUCCESS');
+export const getAllNewsFailure = createAction('GET_ALL_NEWS/FAILURE');
 
-    default:
-      return state;
-  }
+const initialState = {
+  news: [],
+  gettingAllNews: false,
+  gettingAllNewsSuccess: false,
+  gettingAllNewsError: null
 };
+
+export const newsReducer = createReducer(initialState, {
+  [getAllNews]: (state) => {
+    state.gettingAllNews = true;
+    state.gettingAllNewsSuccess = false;
+    state.gettingAllNewsError = null;
+  },
+  [getAllNewsSuccess]: (state, action) => {
+    const news = Object.values(action.payload?.news || {});
+
+    state.news = news;
+    state.gettingAllNews = false;
+    state.gettingAllNewsSuccess = true;
+    state.gettingAllNewsError = null;
+  },
+  [getAllNewsFailure]: (state, action) => {
+    state.gettingAllNews = false;
+    state.gettingAllNewsSuccess = false;
+    state.gettingAllNewsError = action.payload;
+  }
+});
