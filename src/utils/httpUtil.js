@@ -1,6 +1,9 @@
 import axios from 'axios';
 
+import appConfig from 'appConfig';
+
 const http = axios.create({
+  baseURL: appConfig.baseApiURI,
   headers: {
     'Content-Type': 'application/json'
   }
