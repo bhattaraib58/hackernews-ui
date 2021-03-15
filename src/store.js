@@ -5,11 +5,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 
-import rootSaga from 'sagas';
-
-import { newsReducer } from 'reducers/newsReducer';
-
 import appConfig from 'appConfig';
+
+import rootSaga from 'sagas';
+import { newsReducer } from 'reducers/newsReducer';
 
 const persistConfig = {
   news: {
