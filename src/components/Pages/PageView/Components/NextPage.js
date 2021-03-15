@@ -9,6 +9,7 @@ import { interpolate } from 'utils/httpUtil';
 
 /**
  * Next Page Component.
+ * Shows Option to goto Next page or Not based on remaining Items.
  *
  * @param {*} props
  * @returns {Component}
