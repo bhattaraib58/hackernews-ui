@@ -1,0 +1,38 @@
+.container {
+  padding: 2px;
+  background-color: #ff6600;
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.logo img {
+  width: 20px;
+  height: 20px;
+  border: 1px white solid;
+}
+
+.siteName {
+  font-size: 10pt;
+  font-weight: 700;
+  line-height: 12px;
+}
+
+.links {
+  list-style: none;
+}
+
+.links li {
+  font-size: 10pt;
+  padding-right: 8px;
+  border-right: 1px solid #000000;
+  margin-right: 8px;
+  line-height: 10pt;
+}
+
+.links li:last-child {
+  border-right: none;
+}
