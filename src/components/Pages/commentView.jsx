@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import withStory from '../hoc/withStory';
-import Loading from './loading';
+import Loading from '../Common/Loading/Loading';
 import Comment from './comment';
 
 class CommentView extends Component {

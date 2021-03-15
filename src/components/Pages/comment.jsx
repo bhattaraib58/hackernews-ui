@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import { getTimeDiff } from '../utils/utils';
-import * as HTTPHelpers from '../services/Http/http';
+import { getTimeDiff } from '../../utils/utils';
+import * as HTTPHelpers from '../../services/http';
 
-import Loading from './loading';
+import Loading from '../loading';
 
 class Comment extends Component {
   constructor(props) {
