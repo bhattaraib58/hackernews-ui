@@ -22,7 +22,7 @@ function NextPage({ newsType = '', page = '', news = [] }) {
     const nextPageRoute = interpolate(ROUTES.NEWS_TYPE_WITH_PAGE, { newsType, page: nextPageNumber });
 
     return (
-      <div className="next-page">
+      <div className="mt-20 ml-40">
         <Link to={nextPageRoute}>More</Link>
       </div>
     );
