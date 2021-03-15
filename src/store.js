@@ -8,7 +8,6 @@ import { persistStore, persistReducer } from 'redux-persist';
 import rootSaga from 'sagas';
 
 import { newsReducer } from 'reducers/newsReducer';
-import { newsFilterReducer } from 'reducers/newsFilterReducer';
 
 import appConfig from 'appConfig';
 
@@ -16,18 +15,12 @@ const persistConfig = {
   news: {
     key: 'news',
     storage,
-    whitelist: []
-  },
-  newsFilter: {
-    key: 'newsFilter',
-    storage,
-    whitelist: []
+    whitelist: ['news']
   }
 };
 
 const rootReducer = combineReducers({
-  news: persistReducer(persistConfig.news, newsReducer),
-  newsFilter: persistReducer(persistConfig.newsFilter, newsFilterReducer)
+  news: persistReducer(persistConfig.news, newsReducer)
 });
 
 // create the saga middleware
