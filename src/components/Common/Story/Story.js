@@ -7,7 +7,7 @@ import CircleLoader from 'react-spinners/CircleLoader';
 import useFetchItem from 'hooks/useFetchItem';
 
 import ROUTES from 'constants/routes';
-import upvoteArrow from 'assets/images/grayarrow2x.gif';
+import upvoteArrow from 'assets/images/grayArrow.gif';
 
 import { interpolate } from 'utils/httpUtil';
 import { extractHostname, getTimeDifference } from 'utils/utils';
