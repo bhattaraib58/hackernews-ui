@@ -24,6 +24,16 @@ button {
   cursor: pointer;
 }
 
+a,
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 input[type='password'],
 input[type='email'],
 input[type='text'],
