@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.container a:visited {
+  color: #828282;
+  text-decoration: none;
+}
+
+.storyIndex {
+  font-size: 10pt;
+  color: #828282;
+  text-align: right;
+}
+
+.upvote {
+  width: 10px;
+  height: 10px;
+  margin: 3px 2px 6px 2px;
+}
+
+.title {
+  font-size: 10pt;
+  line-height: 14pt;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.hostName {
+  font-size: 8pt;
+  color: #828282;
+  margin-left: 5px;
+}
+
+.links {
+  list-style: none;
+}
+
+.links li {
+  font-size: 7pt;
+  color: #828282;
+  padding-right: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #b1b1b1;
+}
+
+.links li:last-child {
+  border-right: none;
+}
+
+.links a {
+  color: #828282;
+}

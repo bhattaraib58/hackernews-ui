@@ -2,7 +2,7 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f5f4f4;
+  background-color: #f6f6ef;
 }
 
 a,
@@ -118,64 +118,6 @@ a:hover {
 
 .pr-20 {
   padding-right: 20px;
-}
-
-.story-wrap {
-  position: relative;
-}
-
-.story-wrap {
-  margin-bottom: 5px;
-  min-height: 20px;
-}
-
-.rank {
-  float: left;
-  font-size: 10pt;
-  color: #828282;
-  text-align: right;
-}
-/* 
-a:visited {
-  color: #828282;
-  text-decoration: none;
-} */
-
-.upvote {
-  float: left;
-  width: 10px;
-  height: 10px;
-  border: 0px;
-  margin: 3px 2px 6px;
-  background: url('../images/grayarrow2x.gif') no-repeat;
-  background-position: center;
-  margin-right: 6px;
-}
-
-.title a h3:hover {
-  color: #6b5454;
-}
-
-.title h3 {
-  font-size: 11pt;
-  line-height: 14pt;
-  font-weight: 400;
-  word-break: break-all;
-}
-
-.title {
-  float: left;
-  font-size: 7pt;
-  color: #828282;
-  width: 85%;
-}
-.title ul li {
-  display: inline-block;
-  margin-right: 3px;
-}
-
-.title ul li a:hover {
-  text-decoration: underline;
 }
 
 .comment-wrapper {

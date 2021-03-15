@@ -3,8 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import CircleLoader from 'react-spinners/CircleLoader';
 
+import upvoteArrow from 'assets/images/grayarrow2x.gif';
+
 import { getStory } from 'services/story';
-import { getTimeDifference } from 'utils/utils';
+import { extractHostname, getTimeDifference } from 'utils/utils';
+
+import styles from './Story.module.css';
 
 /**
  * Individual Story Component.
@@ -59,25 +63,35 @@ function Story({ storyId = 0, storyIndex = 0 }) {
     );
   }
 
+  const siteUrl = story.url;
+  const hostName = siteUrl ? extractHostname(story.url) : '';
+
   return (
-    <div className="story-wrap clearfix mb-10">
-      {storyIndex ? <div className="rank">{storyIndex}. </div> : null}
-      <div className="upvote" />
-      <div className="title">
-        {story.url ? (
-          <a href={story.url}>
-            <h3>{story.title}</h3>
+    <div className={styles.container}>
+      <div className={styles.storyIndex}>{storyIndex}. </div>
+      <div
+        className={styles.upvote}
+        style={{
+          background: `url(${upvoteArrow}) center center / 10px 10px no-repeat`
+        }}
+      />
+
+      <div>
+        {siteUrl ? (
+          <a className="align-center" href={siteUrl}>
+            <h3 className={styles.title}>{story.title}</h3>
+            <span className={styles.hostName}>({hostName})</span>
           </a>
         ) : (
-          <h3>{story.title}</h3>
+          <h3 className={styles.title}>{story.title}</h3>
         )}
 
-        <ul>
-          <li>{story.score} points</li>
-          <li>by {story.by}</li>
+        <ul className={`align-center ${styles.links}`}>
+          <li>
+            {story.score} points by {story.by}
+          </li>
           <li>{getTimeDifference(story.time)}</li>
           <li>
-            |&nbsp;
             <Link to={'/item/' + story.id}>{story.kids ? story.kids.length + ' comments' : ' discuss'} </Link>
           </li>
         </ul>
