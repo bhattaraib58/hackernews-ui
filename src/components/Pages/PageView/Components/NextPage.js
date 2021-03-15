@@ -10,6 +10,7 @@ import { interpolate } from 'utils/httpUtil';
 /**
  * Next Page Component.
  *
+ * @param {*} props
  * @returns {Component}
  */
 function NextPage({ newsType = '', page = '', news = [] }) {
