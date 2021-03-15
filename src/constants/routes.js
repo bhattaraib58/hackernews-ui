@@ -5,7 +5,7 @@ const ROUTES = {
   HOME: '/',
   STORY_TYPE,
   STORY_TYPE_WITH_PAGE,
-  STORY_COMMENT: '/item/:storyId'
+  STORY_DISCUSSION: '/item/:storyId'
 };
 
 export default ROUTES;

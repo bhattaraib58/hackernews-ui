@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import CircleLoader from 'react-spinners/CircleLoader';
 
+import ROUTES from 'constants/routes';
 import upvoteArrow from 'assets/images/grayarrow2x.gif';
 
 import { getStory } from 'services/story';
+import { interpolate } from 'utils/httpUtil';
 import { extractHostname, getTimeDifference } from 'utils/utils';
 
 import styles from './Story.module.css';
@@ -92,7 +94,13 @@ function Story({ storyId = 0, storyIndex = 0 }) {
           </li>
           <li>{getTimeDifference(story.time)}</li>
           <li>
-            <Link to={'/item/' + story.id}>{story.kids ? story.kids.length + ' comments' : ' discuss'} </Link>
+            <Link
+              to={interpolate(ROUTES.STORY_DISCUSSION, {
+                storyId: story.id
+              })}
+            >
+              {story.kids ? story.kids.length + ' comments' : ' discuss'}
+            </Link>
           </li>
         </ul>
       </div>
