@@ -30,11 +30,11 @@ function Story({ storyId = 0, storyIndex = 0, isStoryDiscussion = false, setStor
   }, [story, gettingItem, gettingItemError, gettingItemSuccess, isStoryDiscussion, setStoryInfo]);
 
   if (gettingItem) {
-    const LoaderComponent = isStoryDiscussion ? BeatLoader : CircleLoader;
+    const Loader = isStoryDiscussion ? BeatLoader : CircleLoader;
 
     return (
       <div className="center mt-20 mb-20">
-        <LoaderComponent color="#F46526" loading={gettingItem} size={20} margin={5} />
+        <Loader color="#F46526" loading={gettingItem} size={20} margin={5} />
       </div>
     );
   } else if (!gettingItem && !gettingItemSuccess && gettingItemError) {

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import Story from 'components/Pages/PageView/Components/Story';
-import Comment from 'components/Pages/StoryDiscussion/Comment';
+import Story from 'components/Common/Story';
+import Comment from 'components/Common/Comment';
 
 import styles from './StoryDiscussion.module.css';
 

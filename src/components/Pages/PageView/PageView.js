@@ -4,7 +4,7 @@ import BeatLoader from 'react-spinners/BeatLoader';
 
 import { ITEMS_PER_PAGE } from 'constants/numbers';
 
-import Story from 'components/Pages/PageView/Components/Story';
+import Story from 'components/Common/Story';
 import NextPage from 'components/Pages/PageView/Components/NextPage';
 
 /**
