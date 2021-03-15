@@ -3,14 +3,14 @@ import { get, interpolate } from 'utils/httpUtil';
 import endpoints from 'constants/endpoints';
 
 /**
- * Fetch Single Story By Story Id.
+ * Fetch Single Item By Item Id.
  *
- * @param {string} storyId
+ * @param {string} itemId
  *
  * @returns {object}
  */
-export async function getStory(storyId) {
-  const url = interpolate(endpoints.story, { storyId });
+export async function getItem(itemId) {
+  const url = interpolate(endpoints.item, { itemId });
   const { data } = await get(url);
 
   return data;

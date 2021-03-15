@@ -1,6 +1,6 @@
 const endpoints = {
   news: '/:storyType',
-  story: '/item/:storyId'
+  item: '/item/:itemId'
 };
 
 export default endpoints;
