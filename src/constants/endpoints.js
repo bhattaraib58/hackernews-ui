@@ -1,5 +1,5 @@
 const endpoints = {
-  news: '/:newsType',
+  news: '/:storyType',
   story: '/item/:storyId'
 };
 

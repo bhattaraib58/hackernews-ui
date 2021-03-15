@@ -7,8 +7,8 @@ import { getAllNews, getAllNewsSuccess, getAllNewsFailure } from 'reducers/newsR
 
 function* getAllNewsSaga(action) {
   try {
-    const { newsType } = action.payload ?? {};
-    const news = yield call(newsService.getAllNews, newsType);
+    const { storyType } = action.payload ?? {};
+    const news = yield call(newsService.getAllNews, storyType);
 
     yield put(getAllNewsSuccess({ news }));
   } catch (error) {

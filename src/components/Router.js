@@ -23,7 +23,7 @@ const Router = () => {
         <Header />
 
         <Switch>
-          <Route exact path={[ROUTES.HOME, ROUTES.NEWS_TYPE, ROUTES.NEWS_TYPE_WITH_PAGE]} component={PageView} />
+          <Route exact path={[ROUTES.STORY_TYPE_WITH_PAGE, ROUTES.STORY_TYPE, ROUTES.HOME]} component={PageView} />
           {/* <Route path="/item/:id" component={CommentView} /> */}
 
           <Route path="/" component={PageNotFound} />

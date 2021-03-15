@@ -13,13 +13,13 @@ import { interpolate } from 'utils/httpUtil';
  * @param {*} props
  * @returns {Component}
  */
-function NextPage({ newsType = '', page = 0, news = [] }) {
+function NextPage({ storyType = '', page = 0, news = [] }) {
   const currentPageNumber = parseInt(page);
   const pagesRemaining = parseInt(news?.length / (currentPageNumber * ITEMS_PER_PAGE)) || 0;
 
   if (pagesRemaining > 0) {
     const nextPageNumber = currentPageNumber + 1;
-    const nextPageRoute = interpolate(ROUTES.NEWS_TYPE_WITH_PAGE, { newsType, page: nextPageNumber });
+    const nextPageRoute = interpolate(ROUTES.STORY_TYPE_WITH_PAGE, { storyType, page: nextPageNumber });
 
     return (
       <div className="mt-20 ml-40">
@@ -33,7 +33,7 @@ function NextPage({ newsType = '', page = 0, news = [] }) {
 
 NextPage.propTypes = {
   news: PropTypes.array,
-  newsType: PropTypes.string,
+  storyType: PropTypes.string,
   page: PropTypes.number
 };
 

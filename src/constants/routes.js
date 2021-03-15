@@ -1,10 +1,11 @@
-const NEWS_TYPE = '/:newsType';
-const NEWS_TYPE_WITH_PAGE = '/:newsType/:page';
+const STORY_TYPE = '/:storyType';
+const STORY_TYPE_WITH_PAGE = '/:storyType/:page';
 
 const ROUTES = {
   HOME: '/',
-  NEWS_TYPE,
-  NEWS_TYPE_WITH_PAGE
+  STORY_TYPE,
+  STORY_TYPE_WITH_PAGE,
+  STORY_COMMENT: '/item/:storyId'
 };
 
 export default ROUTES;

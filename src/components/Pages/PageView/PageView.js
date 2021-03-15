@@ -23,16 +23,16 @@ function PageView({
 
   getAllNews = () => {}
 }) {
-  const { newsType = 'top', page = 1 } = match?.params;
+  const { storyType = 'top', page = 1 } = match?.params;
   const currentPageNumber = parseInt(page);
 
   useEffect(() => {
-    const newsEndpoint = newsType + 'stories.json';
+    const newsEndpoint = storyType + 'stories.json';
 
     getAllNews({
-      newsType: newsEndpoint
+      storyType: newsEndpoint
     });
-  }, [newsType, getAllNews]);
+  }, [storyType, getAllNews]);
 
   const stories = useMemo(() => {
     const previousPage = currentPageNumber - 1;
@@ -64,7 +64,7 @@ function PageView({
         <Story key={storyId} storyId={storyId} storyIndex={(currentPageNumber - 1) * ITEMS_PER_PAGE + index + 1} />
       ))}
 
-      <NextPage newsType={newsType} page={page} news={news} />
+      <NextPage storyType={storyType} page={page} news={news} />
     </div>
   );
 }
