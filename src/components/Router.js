@@ -9,7 +9,7 @@ import Footer from 'components/Common/Footer';
 
 import PageView from 'components/Pages/PageView';
 import PageNotFound from 'components/Pages/PageNotFound';
-// import CommentView from 'components/Pages/commentView';
+import StoryDiscussion from 'components/Pages/StoryDiscussion';
 
 /**
  * Top level application router.
@@ -23,8 +23,8 @@ const Router = () => {
         <Header />
 
         <Switch>
+          <Route exact path={ROUTES.STORY_DISCUSSION} component={StoryDiscussion} />
           <Route exact path={[ROUTES.STORY_TYPE_WITH_PAGE, ROUTES.STORY_TYPE, ROUTES.HOME]} component={PageView} />
-          {/* <Route path="/item/:id" component={CommentView} /> */}
 
           <Route path="/" component={PageNotFound} />
         </Switch>

@@ -1,0 +1,22 @@
+.userForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 15px 40px 15px;
+}
+
+.userForm input,
+.userForm textarea {
+  font-size: 10pt;
+  font-family: monospace;
+}
+
+.userForm input {
+  padding: 2px 4px;
+  border-width: 1px;
+}
+
+.userForm textarea {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
