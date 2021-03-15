@@ -5,7 +5,7 @@
  *
  * @returns {String}
  */
-export function getTimeDiff(previousTime) {
+export function getTimeDifference(previousTime) {
   const msPerMinute = 60 * 1000;
   const msPerHour = msPerMinute * 60;
   const msPerDay = msPerHour * 24;
