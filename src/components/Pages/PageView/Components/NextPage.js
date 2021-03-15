@@ -13,7 +13,7 @@ import { interpolate } from 'utils/httpUtil';
  * @param {*} props
  * @returns {Component}
  */
-function NextPage({ newsType = '', page = '', news = [] }) {
+function NextPage({ newsType = '', page = 0, news = [] }) {
   const currentPageNumber = parseInt(page);
   const pagesRemaining = parseInt(news?.length / (currentPageNumber * ITEMS_PER_PAGE)) || 0;
 
@@ -34,7 +34,7 @@ function NextPage({ newsType = '', page = '', news = [] }) {
 NextPage.propTypes = {
   news: PropTypes.array,
   newsType: PropTypes.string,
-  page: PropTypes.string
+  page: PropTypes.number
 };
 
 export default NextPage;
