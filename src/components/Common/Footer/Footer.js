@@ -10,7 +10,7 @@ import styles from './Footer.module.css';
  */
 function Footer() {
   return (
-    <div className="pt-20 pb-20">
+    <div className="pt-10 pb-20">
       <div className={styles.lineBreak} />
 
       <div className="center mt-20 mb-20">
