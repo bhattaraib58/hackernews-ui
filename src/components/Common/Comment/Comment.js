@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink as Link } from 'react-router-dom';
-import CircleLoader from 'react-spinners/CircleLoader';
+import GridLoader from 'react-spinners/GridLoader';
 
 import useFetchItem from 'hooks/useFetchItem';
 
@@ -24,8 +24,8 @@ function Comment({ commentId }) {
 
   if (gettingItem) {
     return (
-      <div className="center mt-20 mb-20">
-        <CircleLoader color="#F46526" loading={gettingItem} size={20} />
+      <div className="d-flex mt-40 mb-40 ml-20">
+        <GridLoader color="#F46526" loading={gettingItem} size={10} />
       </div>
     );
   } else if (!gettingItem && !gettingItemSuccess && gettingItemError) {
