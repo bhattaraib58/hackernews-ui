@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import GridLoader from 'react-spinners/GridLoader';
 
@@ -20,6 +20,7 @@ import styles from './Comment.module.css';
  * @returns {Component}
  */
 function Comment({ commentId }) {
+  const [isCommentCollapsed, setIsCommentCollapsed] = useState(false);
   const { item: userComment, gettingItem, gettingItemError, gettingItemSuccess } = useFetchItem(commentId);
 
   if (gettingItem) {
@@ -34,7 +35,7 @@ function Comment({ commentId }) {
         <p className="text-danger">{gettingItemError}</p>
       </div>
     );
-  } else if (userComment.type !== 'comment') {
+  } else if (userComment?.type !== 'comment') {
     return null;
   }
 
@@ -43,7 +44,7 @@ function Comment({ commentId }) {
       <div className={styles.container}>
         <div className="align-center">
           <div
-            className={styles.upvote}
+            className={`${styles.upvote} ${isCommentCollapsed ? styles.visibilityHidden : ''}`}
             style={{
               background: `url(${upvoteArrow}) center center / 10px 10px no-repeat`
             }}
@@ -53,9 +54,13 @@ function Comment({ commentId }) {
             <li>{userComment.by}</li>
             <li>{getTimeDifference(userComment.time)}</li>
           </ul>
+
+          <div className={styles.expandHide} onClick={() => setIsCommentCollapsed(!isCommentCollapsed)}>
+            [{isCommentCollapsed ? '+' : '-'}]
+          </div>
         </div>
 
-        <div className={`ml-20 ${styles.commentMessage}`}>
+        <div className={`ml-20 ${styles.commentMessage} ${isCommentCollapsed ? styles.displayNone : ''}`}>
           <div dangerouslySetInnerHTML={{ __html: userComment.text }} />
 
           <Link
@@ -69,11 +74,11 @@ function Comment({ commentId }) {
         </div>
       </div>
 
-      {userComment?.kids?.map((commentId) => (
-        <div className="ml-20" key={commentId}>
-          <Comment commentId={commentId} key={commentId} />
-        </div>
-      ))}
+      <div className={`ml-20 ${isCommentCollapsed ? styles.displayNone : ''}`}>
+        {userComment?.kids?.map((commentId) => (
+          <Comment key={commentId} commentId={commentId} />
+        ))}
+      </div>
     </>
   );
 }

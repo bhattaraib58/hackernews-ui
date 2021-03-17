@@ -20,6 +20,12 @@
   margin-right: 8px;
 }
 
+.expandHide {
+  cursor: pointer;
+  font-size: 10pt;
+  color: #828282;
+}
+
 .commentMessage {
   font-size: 9pt;
   color: #000000;
@@ -29,4 +35,12 @@
 .reply {
   margin-top: 6px;
   text-decoration: underline !important;
+}
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
+.displayNone {
+  display: none;
 }
